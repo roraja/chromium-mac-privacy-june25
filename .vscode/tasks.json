@@ -1,0 +1,39 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build",
+            "type": "shell",
+            "command": "clang++",
+            "args": [
+                "-std=c++17",
+                "-fobjc-arc",
+                "-framework",
+                "Cocoa",
+                "main.mm",
+                "AppDelegate.mm",
+                "-o",
+                "ClipboardApp"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "detail": "Compile the Objective-C++ files and link against the Cocoa framework."
+        },
+        {
+            "label": "Run",
+            "type": "shell",
+            "command": "./ClipboardApp",
+            "dependsOn": ["Build"],
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "detail": "Run the compiled ClipboardApp application."
+        }
+    ]
+}

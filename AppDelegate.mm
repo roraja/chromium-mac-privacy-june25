@@ -35,6 +35,14 @@
     [self.pasteButton setAction:@selector(pasteText:)];
     [[self.window contentView] addSubview:self.pasteButton];
 
+    // Create the Open Privacy Settings button
+    self.privacySettingsButton = [[NSButton alloc] initWithFrame:NSMakeRect(220, 50, 160, 30)];
+    [self.privacySettingsButton setTitle:@"Open Privacy Settings"];
+    [self.privacySettingsButton setBezelStyle:NSBezelStyleRounded];
+    [self.privacySettingsButton setTarget:self];
+    [self.privacySettingsButton setAction:@selector(openPrivacySettings:)];
+    [[self.window contentView] addSubview:self.privacySettingsButton];
+
     [self.window makeKeyAndOrderFront:nil];
     [NSApp activateIgnoringOtherApps:YES];
 }
@@ -45,6 +53,12 @@
     if (clipboardText) {
         [self.textField setStringValue:clipboardText];
     }
+}
+
+- (void)openPrivacySettings:(id)sender {
+    NSString *urlString = @"x-apple.systempreferences:com.apple.preference.security?Privacy_Camera";
+    NSURL *url = [NSURL URLWithString:urlString];
+    [[NSWorkspace sharedWorkspace] openURL:url];
 }
 
 - (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)sender {
