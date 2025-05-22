@@ -11,6 +11,9 @@
     [self.window setTitle:@"Clipboard App"];
     [self.window center];
 
+    // Ensure the app icon is shown in the Dock and the app has a menu bar
+    [NSApp setActivationPolicy:NSApplicationActivationPolicyRegular];
+
     // Create the text field
     self.textField = [[NSTextField alloc] initWithFrame:NSMakeRect(20, 100, 360, 24)];
     [self.textField setBezeled:YES];
@@ -56,7 +59,7 @@
 }
 
 - (void)openPrivacySettings:(id)sender {
-    NSString *urlString = @"x-apple.systempreferences:com.apple.preference.security?Privacy_Camera";
+    NSString *urlString = @"x-apple.systempreferences:com.apple.preference.security?Privacy_Pasteboard";
     NSURL *url = [NSURL URLWithString:urlString];
     [[NSWorkspace sharedWorkspace] openURL:url];
 }

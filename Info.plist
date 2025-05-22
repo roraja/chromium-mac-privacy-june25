@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>CFBundleExecutable</key>
+    <string>ClipboardApp</string>
+    <key>CFBundleIconFile</key>
+    <string>AppIcon</string> <!-- You'll need to create an AppIcon.icns file -->
+    <key>CFBundleIdentifier</key>
+    <string>com.example.ClipboardApp</string> <!-- Replace with your own bundle identifier -->
+    <key>CFBundleName</key>
+    <string>ClipboardApp</string>
+    <key>CFBundlePackageType</key>
+    <string>APPL</string>
+    <key>CFBundleShortVersionString</key>
+    <string>1.0</string>
+    <key>CFBundleVersion</key>
+    <string>1</string>
+    <key>LSMinimumSystemVersion</key>
+    <string>10.10</string>
+    <key>NSPrincipalClass</key>
+    <string>NSApplication</string>
+    <key>NSMainNibFile</key>
+    <string></string>
+    <key>LSUIElement</key>
+    <false/> <!-- Set to false to show in Dock and have a menu bar -->
+</dict>
+</plist>

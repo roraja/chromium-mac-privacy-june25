@@ -1,16 +1,30 @@
+# Mac Privacy handling in Chromium
+
+## Next tasks
+- Understand what Mac privacy behaviour is and what all APIs Mac is providing to tackle this
+- Come up with an explainer which lists down change proposals with screenshots regarding 
+
+## Links
+Mac privacy announcement: https://developer.apple.com/documentation/updates/appkit#macOS-pasteboard-privacy
+Bug: https://issues.chromium.org/issues/417767133
+
 # Simple Clipboard Mac App
 
-This is a simple macOS application written in Objective-C++ that demonstrates basic clipboard operations (copy and paste) with a text input field.
+This is a simple macOS application written in Objective-C++ that demonstrates basic clipboard operations (copy and paste) with a text input field to investigate changes in Pasteboard privacy configuration on Mac.
 
 ## Prerequisites
 
 - macOS (tested on M2)
 - Xcode Command Line Tools (provides clang and other necessary build tools)
+- Ensure you have latest MacOS version which has the new Pasteboard privacy preview
 
 To install Xcode Command Line Tools, open Terminal and run:
 ```bash
 xcode-select --install
 ```
+
+defaults write com.example.ClipboardApp EnablePasteboardPrivacyDeveloperPreview -bool yes
+defaults write org.chromium.Chromium EnablePasteboardPrivacyDeveloperPreview -bool yes
 
 ## Building the App
 
@@ -37,8 +51,13 @@ xcode-select --install
     *   `-o ClipboardApp`: Specifies the name of the output executable file.
 
 ## Running the App
+1. ** Enable Pasteboard privacy for this app **
 
-1.  **Execute the compiled application:**
+```shell
+defaults write com.example.ClipboardApp EnablePasteboardPrivacyDeveloperPreview -bool yes
+```
+
+2.  **Execute the compiled application:**
     After successful compilation, you can run the app directly from the Terminal:
 
     ```bash
